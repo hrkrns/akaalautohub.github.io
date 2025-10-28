@@ -1,0 +1,990 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="AKAAL AUTOHUB - Your Trusted Automotive Service Center. Professional Auto Repairs, Premium Tires & Expert Detailing. Coming Soon!"
+		/>
+		<meta
+			name="keywords"
+			content="automotive, auto repairs, tires, detailing, car service, Saskatoon, AKAAL AUTOHUB"
+		/>
+		<title>AKAAL AUTOHUB - Coming Soon</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			:root {
+				--primary: #6b0f1a;
+				--secondary: #2d2d2d;
+				--accent: #cccccc;
+				--background: #000000;
+				--text: #ffffff;
+				--text-secondary: #cccccc;
+			}
+
+			body {
+				font-family: "Montserrat", sans-serif;
+				background: linear-gradient(
+					135deg,
+					#000000 0%,
+					#2d2d2d 50%,
+					#000000 100%
+				);
+				background-size: 400% 400%;
+				animation: gradientShift 15s ease infinite;
+				color: var(--text);
+				overflow-x: hidden;
+				position: relative;
+			}
+
+			@keyframes gradientShift {
+				0% {
+					background-position: 0% 50%;
+				}
+				50% {
+					background-position: 100% 50%;
+				}
+				100% {
+					background-position: 0% 50%;
+				}
+			}
+
+			/* Animated background particles */
+			.particles {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				pointer-events: none;
+				z-index: 1;
+			}
+
+			.particle {
+				position: absolute;
+				background: var(--primary);
+				border-radius: 50%;
+				opacity: 0.2;
+				animation: float linear infinite;
+			}
+
+			@keyframes float {
+				0% {
+					transform: translateY(100vh) scale(0);
+					opacity: 0;
+				}
+				10% {
+					opacity: 0.3;
+				}
+				90% {
+					opacity: 0.3;
+				}
+				100% {
+					transform: translateY(-100px) scale(1);
+					opacity: 0;
+				}
+			}
+
+			/* Container */
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+				position: relative;
+				z-index: 2;
+			}
+
+			/* Header */
+			header {
+				padding: 15px 0;
+				text-align: center;
+				opacity: 0;
+				animation: fadeInDown 1s ease forwards;
+			}
+
+			.logo-container {
+				display: inline-block;
+				background: white;
+				padding: 8px 16px;
+				border-radius: 10px;
+				box-shadow: 0 5px 20px rgba(107, 15, 26, 0.3);
+				transition:
+					transform 0.3s ease,
+					box-shadow 0.3s ease;
+			}
+
+			.logo-container:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 15px 50px rgba(107, 15, 26, 0.5);
+			}
+
+			.logo {
+				max-width: 200px;
+				height: auto;
+				display: block;
+			}
+
+			/* Business Name Emphasis */
+			.business-name {
+				text-align: center;
+				padding: 10px 0 5px 0;
+				opacity: 0;
+				animation: fadeInUp 1s ease 0.5s forwards;
+			}
+
+			.business-name h2 {
+				font-size: clamp(1.8rem, 4vw, 3rem);
+				font-weight: 900;
+				color: #8b1626;
+				letter-spacing: 0.15em;
+				margin: 0;
+				text-transform: uppercase;
+				text-shadow: 0 0 30px rgba(107, 15, 26, 0.5);
+			}
+
+			.business-tagline {
+				font-size: clamp(1rem, 2vw, 1.3rem);
+				color: var(--text-secondary);
+				font-weight: 400;
+				margin-top: 15px;
+				letter-spacing: 0.05em;
+			}
+
+			@keyframes fadeInDown {
+				from {
+					opacity: 0;
+					transform: translateY(-30px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			/* Hero Section */
+			.hero {
+				text-align: center;
+				padding: 20px 0;
+				opacity: 0;
+				animation: fadeIn 1s ease 0.3s forwards;
+			}
+
+			@keyframes fadeIn {
+				from {
+					opacity: 0;
+				}
+				to {
+					opacity: 1;
+				}
+			}
+
+			.hero h1 {
+				font-size: clamp(3rem, 8vw, 7rem);
+				font-weight: 900;
+				background: linear-gradient(135deg, var(--primary), #ffffff);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+				margin-bottom: 20px;
+				letter-spacing: -2px;
+				animation: glowPulse 3s ease-in-out infinite;
+			}
+
+			@keyframes glowPulse {
+				0%,
+				100% {
+					filter: drop-shadow(0 0 10px rgba(107, 15, 26, 0.3));
+				}
+				50% {
+					filter: drop-shadow(0 0 30px rgba(107, 15, 26, 0.6));
+				}
+			}
+
+			.hero p {
+				font-size: clamp(1rem, 2vw, 1.3rem);
+				color: var(--text-secondary);
+				font-weight: 300;
+				max-width: 600px;
+				margin: 0 auto;
+			}
+
+			/* Countdown Timer */
+			.countdown {
+				display: flex;
+				justify-content: center;
+				gap: 20px;
+				margin: 20px 0;
+				flex-wrap: wrap;
+				opacity: 0;
+				animation: fadeInUp 1s ease 0.6s forwards;
+			}
+
+			@keyframes fadeInUp {
+				from {
+					opacity: 0;
+					transform: translateY(30px);
+				}
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			.countdown-item {
+				/* background: rgba(45, 45, 45, 0.6); */
+				backdrop-filter: blur(10px);
+				border: 2px solid rgba(107, 15, 26, 0.4);
+				border-radius: 15px;
+				padding: 25px 30px;
+				min-width: 120px;
+				text-align: center;
+				transition: all 0.3s ease;
+			}
+
+			.countdown-item:hover {
+				transform: translateY(-10px) scale(1.05);
+				border-color: var(--primary);
+				box-shadow: 0 10px 30px rgba(107, 15, 26, 0.5);
+			}
+
+			.countdown-number {
+				font-size: 3rem;
+				font-weight: 700;
+				color: var(--primary);
+				display: block;
+				line-height: 1;
+			}
+
+			.countdown-label {
+				font-size: 0.9rem;
+				color: var(--text-secondary);
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				margin-top: 10px;
+			}
+
+			/* Features Section */
+			.features {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center; /* ✅ centers the cards */
+				gap: 30px;
+				margin: 60px auto;
+				padding: 0 20px;
+				max-width: 1000px; /* optional: keeps layout tidy */
+				text-align: center;
+			}
+
+			.feature-card {
+				background: rgba(45, 45, 45, 0.5);
+				backdrop-filter: blur(10px);
+				border: 1px solid rgba(107, 15, 26, 0.3);
+				border-radius: 20px;
+				padding: 40px 30px;
+				text-align: center;
+				transition: all 0.4s ease;
+				opacity: 0;
+				transform: translateY(50px);
+				width: 280px; /* ✅ gives consistent size for flex centering */
+				margin: 0; /* ensure no weird auto margins */
+			}
+
+			.feature-card.animate {
+				animation: slideInUp 0.8s ease forwards;
+			}
+
+			@keyframes slideInUp {
+				to {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+
+			.feature-card:hover {
+				transform: translateY(-15px);
+				border-color: var(--primary);
+				box-shadow: 0 15px 40px rgba(107, 15, 26, 0.4);
+				background: rgba(107, 15, 26, 0.25);
+			}
+
+			.feature-icon {
+				font-size: 4rem;
+				margin-bottom: 20px;
+				display: block;
+				animation: bounce 2s ease infinite;
+			}
+
+			@keyframes bounce {
+				0%,
+				100% {
+					transform: translateY(0);
+				}
+				50% {
+					transform: translateY(-10px);
+				}
+			}
+
+			.feature-card:hover .feature-icon {
+				animation: spin 0.6s ease;
+			}
+
+			@keyframes spin {
+				from {
+					transform: rotate(0deg) scale(1);
+				}
+				50% {
+					transform: rotate(180deg) scale(1.2);
+				}
+				to {
+					transform: rotate(360deg) scale(1);
+				}
+			}
+
+			.feature-title {
+				font-size: 1.4rem;
+				font-weight: 600;
+				color: var(--text);
+				margin-bottom: 10px;
+			}
+
+			.feature-description {
+				font-size: 1rem;
+				color: var(--text-secondary);
+				font-weight: 300;
+				line-height: 1.6;
+			}
+
+			/* Email Form */
+			.email-section {
+				text-align: center;
+				padding: 80px 20px;
+				opacity: 0;
+				animation: fadeIn 1s ease 0.9s forwards;
+			}
+
+			.email-section h3 {
+				font-size: 2rem;
+				margin-bottom: 15px;
+				color: var(--text);
+			}
+
+			.email-section p {
+				font-size: 1.1rem;
+				color: var(--text-secondary);
+				margin-bottom: 30px;
+			}
+
+			.email-form {
+				display: flex;
+				gap: 15px;
+				max-width: 600px;
+				margin: 0 auto;
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+
+			.email-input {
+				flex: 1;
+				min-width: 250px;
+				padding: 18px 25px;
+				font-size: 1rem;
+				border: 2px solid rgba(107, 15, 26, 0.4);
+				border-radius: 50px;
+				background: rgba(45, 45, 45, 0.6);
+				color: var(--text);
+				outline: none;
+				transition: all 0.3s ease;
+				font-family: "Montserrat", sans-serif;
+			}
+
+			.email-input:focus {
+				border-color: var(--primary);
+				box-shadow: 0 0 20px rgba(107, 15, 26, 0.4);
+				transform: translateY(-2px);
+			}
+
+			.email-input::placeholder {
+				color: var(--text-secondary);
+			}
+
+			.submit-btn {
+				padding: 18px 40px;
+				font-size: 1rem;
+				font-weight: 600;
+				background: linear-gradient(135deg, var(--primary), #8b1626);
+				color: white;
+				border: none;
+				border-radius: 50px;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				font-family: "Montserrat", sans-serif;
+				position: relative;
+				overflow: hidden;
+			}
+
+			.submit-btn::before {
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 0;
+				height: 0;
+				border-radius: 50%;
+				background: rgba(255, 255, 255, 0.3);
+				transform: translate(-50%, -50%);
+				transition:
+					width 0.6s,
+					height 0.6s;
+			}
+
+			.submit-btn:hover::before {
+				width: 300px;
+				height: 300px;
+			}
+
+			.submit-btn:hover {
+				transform: translateY(-3px) scale(1.05);
+				box-shadow: 0 10px 30px rgba(107, 15, 26, 0.5);
+			}
+
+			.submit-btn:active {
+				transform: translateY(-1px) scale(1.02);
+			}
+
+			.submit-btn span {
+				position: relative;
+				z-index: 1;
+			}
+
+			.success-message {
+				margin-top: 20px;
+				padding: 15px 30px;
+				background: rgba(33, 128, 141, 0.2);
+				border: 2px solid rgba(33, 128, 141, 0.5);
+				border-radius: 10px;
+				color: var(--text);
+				font-weight: 500;
+				display: none;
+				animation: successPop 0.5s ease;
+			}
+
+			.success-message.show {
+				display: block;
+			}
+
+			@keyframes successPop {
+				0% {
+					transform: scale(0.8);
+					opacity: 0;
+				}
+				50% {
+					transform: scale(1.05);
+				}
+				100% {
+					transform: scale(1);
+					opacity: 1;
+				}
+			}
+
+			/* Contact Information Section */
+			.contact-section {
+				text-align: center;
+				padding: 60px 20px;
+				opacity: 0;
+				animation: fadeIn 1s ease 1.2s forwards;
+			}
+
+			.contact-title {
+				font-size: 2rem;
+				margin-bottom: 40px;
+				color: var(--text);
+			}
+
+			.contact-info {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 30px;
+				max-width: 1000px;
+				margin: 0 auto;
+			}
+
+			.contact-item {
+				background: rgba(45, 45, 45, 0.6);
+				backdrop-filter: blur(10px);
+				border: 2px solid rgba(204, 204, 204, 0.2);
+				border-radius: 15px;
+				padding: 30px 20px;
+				display: flex;
+				align-items: flex-start;
+				gap: 15px;
+				text-align: left;
+				transition: all 0.3s ease;
+			}
+
+			.contact-item:hover {
+				transform: translateY(-5px);
+				border-color: var(--primary);
+				box-shadow: 0 10px 30px rgba(107, 15, 26, 0.3);
+			}
+
+			.contact-icon {
+				font-size: 2rem;
+				flex-shrink: 0;
+			}
+
+			.contact-item strong {
+				display: block;
+				color: var(--text);
+				font-size: 1.1rem;
+				margin-bottom: 8px;
+			}
+
+			.contact-link {
+				color: var(--primary);
+				text-decoration: none;
+				font-size: 1.05rem;
+				transition: color 0.3s ease;
+			}
+
+			.contact-link:hover {
+				color: var(--text);
+				text-decoration: underline;
+			}
+
+			/* White phone number styling */
+			.phone-link {
+				color: #ffffff !important;
+				font-weight: 700;
+				font-size: 1.2rem;
+			}
+
+			.phone-link:hover {
+				color: var(--text) !important;
+				text-decoration: underline;
+			}
+
+			.contact-text {
+				color: var(--text-secondary);
+				font-size: 1rem;
+				line-height: 1.6;
+				margin: 0;
+			}
+
+			/* Footer */
+			footer {
+				text-align: center;
+				padding: 40px 20px;
+				border-top: 1px solid rgba(107, 15, 26, 0.3);
+				margin-top: 60px;
+				opacity: 0;
+				animation: fadeIn 1s ease 1.5s forwards;
+			}
+
+			footer p {
+				color: var(--text-secondary);
+				font-size: 0.95rem;
+				margin: 10px 0;
+			}
+
+			footer a {
+				color: var(--primary);
+				text-decoration: none;
+				transition: color 0.3s ease;
+			}
+
+			footer a:hover {
+				color: var(--text);
+				text-decoration: underline;
+			}
+
+			/* Responsive Design */
+			@media (max-width: 768px) {
+				.logo {
+					max-width: 200px;
+				}
+
+				.hero h1 {
+					font-size: 3rem;
+				}
+
+				.countdown {
+					gap: 15px;
+				}
+
+				.countdown-item {
+					min-width: 80px;
+					padding: 20px 15px;
+				}
+
+				.countdown-number {
+					font-size: 2rem;
+				}
+
+				.features {
+					grid-template-columns: 1fr;
+					gap: 20px;
+				}
+
+				.email-form {
+					flex-direction: column;
+				}
+
+				.email-input {
+					width: 100%;
+				}
+
+				.submit-btn {
+					width: 100%;
+				}
+			}
+
+			@media (max-width: 480px) {
+				.logo {
+					max-width: 150px;
+				}
+
+				header {
+					padding: 20px 0;
+				}
+
+				.hero {
+					padding: 30px 0;
+				}
+
+				.countdown-item {
+					min-width: 70px;
+					padding: 15px 10px;
+				}
+
+				.countdown-number {
+					font-size: 1.5rem;
+				}
+
+				.countdown-label {
+					font-size: 0.7rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Animated particles -->
+		<div class="particles" id="particles"></div>
+
+		<!-- Header with Logo -->
+		<div style="background-color: #ffffff; padding: 2rem">
+			<header>
+				<div class="container">
+					<div class="logo-container">
+						<img
+							src="/Users/harkaransidhu/Downloads/akaal-autohub/logo_w_bg.png"
+							alt="AKAAL AUTOHUB Logo - Automotive Repairs, Tires &amp; Detailing"
+							class="logo"
+						/>
+					</div>
+				</div>
+			</header>
+
+			<!-- Business Name Emphasis -->
+			<section class="business-name">
+				<div class="container">
+					<h2>AKAAL AUTOHUB</h2>
+					<p class="business-tagline">
+						Your Trusted Automotive Service Center
+					</p>
+				</div>
+			</section>
+
+			<!-- Hero Section -->
+			<section class="hero">
+				<div class="container">
+					<h1>COMING SOON</h1>
+					<p>
+						Professional Auto Repairs, Premium Tires &amp; Expert
+						Detailing
+					</p>
+				</div>
+			</section>
+
+			<!-- Countdown Timer -->
+			<section
+				class="countdown"
+				id="countdown"
+				style="justify-content: center"
+			>
+				<div class="countdown-item">
+					<span class="countdown-number" id="days">00</span>
+					<span class="countdown-label">Days</span>
+				</div>
+				<div class="countdown-item">
+					<span class="countdown-number" id="hours">00</span>
+					<span class="countdown-label">Hours</span>
+				</div>
+				<div class="countdown-item">
+					<span class="countdown-number" id="minutes">00</span>
+					<span class="countdown-label">Minutes</span>
+				</div>
+				<div class="countdown-item">
+					<span class="countdown-number" id="seconds">00</span>
+					<span class="countdown-label">Seconds</span>
+				</div>
+			</section>
+		</div>
+
+		<!-- Services Section -->
+		<section class="features container">
+			<div class="feature-card">
+				<span class="feature-icon">🔧</span>
+				<h3 class="feature-title">Auto Repairs</h3>
+				<p class="feature-description">
+					Expert mechanical repairs and diagnostics for all vehicle
+					makes and models
+				</p>
+			</div>
+			<div class="feature-card">
+				<span class="feature-icon">🛞</span>
+				<h3 class="feature-title">Premium Tires</h3>
+				<p class="feature-description">
+					Quality tire sales, installation, balancing, and seasonal
+					changeovers
+				</p>
+			</div>
+			<div class="feature-card">
+				<span class="feature-icon">✨</span>
+				<h3 class="feature-title">Professional Detailing</h3>
+				<p class="feature-description">
+					Complete interior and exterior detailing services for a
+					showroom shine
+				</p>
+			</div>
+		</section>
+
+		<!-- Email Signup Section -->
+		<section class="email-section">
+			<div class="container">
+				<h3>Get Early Access</h3>
+				<p>
+					Be the first to know when we launch. Join our waitlist
+					today!
+				</p>
+				<form class="email-form" id="emailForm">
+					<input
+						type="email"
+						class="email-input"
+						placeholder="Enter your email"
+						required
+						id="emailInput"
+					/>
+					<button type="submit" class="submit-btn">
+						<span>Join the Waitlist</span>
+					</button>
+				</form>
+				<div class="success-message" id="successMessage">
+					✓ Thank you! We'll notify you when we launch.
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Information Section -->
+		<section class="contact-section">
+			<div class="container">
+				<h3 class="contact-title">Get In Touch</h3>
+				<div class="contact-info">
+					<div class="contact-item">
+						<span class="contact-icon">📞</span>
+						<div>
+							<strong>Phone</strong>
+							<a
+								href="tel:6396370009"
+								class="contact-link phone-link"
+								>(639) 637-0009</a
+							>
+						</div>
+					</div>
+					<div class="contact-item">
+						<span class="contact-icon">✉️</span>
+						<div>
+							<strong>Email</strong>
+							<a
+								href="mailto:info@akaalautohub.ca"
+								class="contact-link"
+								>info@akaalautohub.ca</a
+							>
+						</div>
+					</div>
+					<div class="contact-item">
+						<span class="contact-icon">📍</span>
+						<div>
+							<strong>Address</strong>
+							<p class="contact-text">
+								Unit 10, 331 60th St E<br />Saskatoon, SK S7K
+								8C8
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer>
+			<div class="container">
+				<p>&copy; 2025 AKAAL AUTOHUB. All rights reserved.</p>
+				<p>
+					Email:
+					<a href="mailto:info@akaalautohub.ca"
+						>info@akaalautohub.ca</a
+					>
+					| Phone:
+					<a
+						href="tel:6396370009"
+						style="color: #ffffff; font-weight: 700"
+						>(639) 637-0009</a
+					>
+				</p>
+				<p>Unit 10, 331 60th St E, Saskatoon, SK S7K 8C8</p>
+			</div>
+		</footer>
+
+		<script>
+			// Store email submissions in memory (localStorage not available in sandboxed environment)
+			const emailSubmissions = [];
+
+			// Countdown Timer
+			function initCountdown() {
+				// Set launch date to 30 days from now
+				const launchDate = new Date();
+				launchDate.setDate(launchDate.getDate() + 30);
+
+				function updateCountdown() {
+					const now = new Date().getTime();
+					const distance = launchDate.getTime() - now;
+
+					const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+					const hours = Math.floor(
+						(distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+					);
+					const minutes = Math.floor(
+						(distance % (1000 * 60 * 60)) / (1000 * 60)
+					);
+					const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+					document.getElementById("days").textContent = String(
+						days
+					).padStart(2, "0");
+					document.getElementById("hours").textContent = String(
+						hours
+					).padStart(2, "0");
+					document.getElementById("minutes").textContent = String(
+						minutes
+					).padStart(2, "0");
+					document.getElementById("seconds").textContent = String(
+						seconds
+					).padStart(2, "0");
+
+					if (distance < 0) {
+						clearInterval(countdownInterval);
+						document.getElementById("countdown").innerHTML =
+							"<h2>We're Live!</h2>";
+					}
+				}
+
+				updateCountdown();
+				const countdownInterval = setInterval(updateCountdown, 1000);
+			}
+
+			// Email Form Submission
+			document
+				.getElementById("emailForm")
+				.addEventListener("submit", function (e) {
+					e.preventDefault();
+
+					const emailInput = document.getElementById("emailInput");
+					const email = emailInput.value;
+					const successMessage =
+						document.getElementById("successMessage");
+
+					// Store email in memory
+					emailSubmissions.push({
+						email: email,
+						timestamp: new Date().toISOString(),
+					});
+
+					// Show success message
+					successMessage.classList.add("show");
+					emailInput.value = "";
+
+					// Hide success message after 5 seconds
+					setTimeout(() => {
+						successMessage.classList.remove("show");
+					}, 5000);
+
+					console.log("Email submissions:", emailSubmissions);
+				});
+
+			// Animated Particles
+			function createParticles() {
+				const particlesContainer = document.getElementById("particles");
+				const particleCount = 30;
+
+				for (let i = 0; i < particleCount; i++) {
+					const particle = document.createElement("div");
+					particle.className = "particle";
+
+					const size = Math.random() * 4 + 2;
+					particle.style.width = size + "px";
+					particle.style.height = size + "px";
+					particle.style.left = Math.random() * 100 + "%";
+					particle.style.animationDuration =
+						Math.random() * 10 + 10 + "s";
+					particle.style.animationDelay = Math.random() * 5 + "s";
+
+					particlesContainer.appendChild(particle);
+				}
+			}
+
+			// Animate feature cards on scroll
+			function animateOnScroll() {
+				const featureCards = document.querySelectorAll(".feature-card");
+
+				const observer = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry, index) => {
+							if (entry.isIntersecting) {
+								setTimeout(() => {
+									entry.target.classList.add("animate");
+								}, index * 150);
+								observer.unobserve(entry.target);
+							}
+						});
+					},
+					{
+						threshold: 0.2,
+					}
+				);
+
+				featureCards.forEach((card) => {
+					observer.observe(card);
+				});
+			}
+
+			// Initialize everything on page load
+			window.addEventListener("DOMContentLoaded", () => {
+				initCountdown();
+				createParticles();
+				animateOnScroll();
+			});
+		</script>
+	</body>
+</html>
