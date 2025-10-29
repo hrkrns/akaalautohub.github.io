@@ -181,6 +181,72 @@
 				animation: fadeIn 1s ease 0.3s forwards;
 			}
 
+			/* Launch Date Text – Responsive & Glowing */
+			.hero .launch-date {
+				display: inline-block;
+				font-size: clamp(
+					1.1rem,
+					4vw,
+					2.2rem
+				); /* ✅ scales with screen size */
+				font-weight: 800;
+				color: #8b1626 !important;
+				text-transform: uppercase;
+				letter-spacing: 2px;
+				margin-top: 10px;
+				margin-bottom: 20px;
+				opacity: 0;
+				animation:
+					fadeInUp 1.2s ease 0.8s forwards,
+					launchGlow 3s ease-in-out infinite;
+				text-shadow: 0 0 15px rgba(139, 22, 38, 0.5);
+				text-align: center;
+				white-space: normal; /* ✅ allows wrapping */
+				word-break: break-word; /* ✅ breaks long text cleanly */
+				line-height: 1.3;
+				max-width: 90%; /* ✅ prevents cutoff */
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			/* Dedicated glowing red pulse animation */
+			@keyframes launchGlow {
+				0%,
+				100% {
+					text-shadow:
+						0 0 10px rgba(139, 22, 38, 0.6),
+						0 0 20px rgba(139, 22, 38, 0.3);
+				}
+				50% {
+					text-shadow:
+						0 0 30px rgba(139, 22, 38, 0.9),
+						0 0 50px rgba(139, 22, 38, 0.7);
+				}
+			}
+
+			/* Optional underline accent for style */
+			.hero .launch-date::after {
+				content: "";
+				display: block;
+				width: 60px;
+				height: 3px;
+				background: #8b1626;
+				margin: 8px auto 0 auto;
+				border-radius: 2px;
+				opacity: 0;
+				animation: fadeInUp 1.2s ease 1s forwards;
+			}
+
+			/* 📱 Mobile-specific adjustments */
+			@media (max-width: 480px) {
+				.hero .launch-date {
+					font-size: 1rem; /* slightly smaller on mobile */
+					letter-spacing: 1px; /* tighter spacing */
+					line-height: 1.4; /* better wrapping */
+					white-space: normal;
+				}
+			}
+
 			@keyframes fadeIn {
 				from {
 					opacity: 0;
@@ -710,6 +776,9 @@
 			<section class="hero">
 				<div class="container">
 					<h1>COMING SOON</h1>
+					<p class="launch-date">
+						Opening November 1, 2025 • 9:00 AM CST
+					</p>
 					<p>
 						Professional Auto Repairs, Premium Tires &amp; Expert
 						Detailing
@@ -863,13 +932,19 @@
 
 			// Countdown Timer
 			function initCountdown() {
-				// Set launch date to 30 days from now
-				const launchDate = new Date();
-				launchDate.setDate(launchDate.getDate() + 30);
+				// Target: November 1, 2025, 9:00 AM Saskatchewan time (CST, UTC-6)
+				const launchDate = new Date("2025-11-01T09:00:00-06:00");
 
 				function updateCountdown() {
 					const now = new Date().getTime();
 					const distance = launchDate.getTime() - now;
+
+					if (distance <= 0) {
+						clearInterval(countdownInterval);
+						document.getElementById("countdown").innerHTML =
+							"<h2>We're Live!</h2>";
+						return;
+					}
 
 					const days = Math.floor(distance / (1000 * 60 * 60 * 24));
 					const hours = Math.floor(
@@ -892,12 +967,6 @@
 					document.getElementById("seconds").textContent = String(
 						seconds
 					).padStart(2, "0");
-
-					if (distance < 0) {
-						clearInterval(countdownInterval);
-						document.getElementById("countdown").innerHTML =
-							"<h2>We're Live!</h2>";
-					}
 				}
 
 				updateCountdown();
